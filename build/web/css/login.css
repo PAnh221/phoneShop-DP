@@ -1,0 +1,75 @@
+body{
+    background-image: url("https://media.istockphoto.com/vectors/grey-and-white-geometric-triangles-backgorund-vector-id1007122208?k=20&m=1007122208&s=612x612&w=0&h=xtfBDBIDKCWeJmC3vFQbJT-idW1FTXbYcBCmIrtrY20=");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.signup-header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background:black;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+
+}
+
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+  font-size:16px;
+}
+
+.signup-group {
+  margin: 10px 0px 10px 0px;
+}
+.signup-group label {
+  display: block;
+  text-align:left;
+  margin: 3px;
+}
+.signup-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size:14px;
+}
+.signup-btn {
+  width: 150px;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background:black;
+  border: none;
+  border-radius: 5px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+.signup-btn:hover{
+  color: black;
+  background:#A0A0A0;
+}
+p{
+    display: block;
+    text-align:center;
+}
+ mark{
+  color:grey;
+  background:black;
+  font-size:26px;
+}
+
