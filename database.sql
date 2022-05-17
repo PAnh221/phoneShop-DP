@@ -53,12 +53,13 @@ CREATE TABLE `cart` (
   `user_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
   `quantity` int NOT NULL DEFAULT '1',
+  `unit_price` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   KEY `product_id_idx` (`product_id`),
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +89,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `orders_ibpk` (`user_id`),
   CONSTRAINT `orders_ibpk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +98,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,1,0.9,'2022-05-17 16:55:25',NULL,1550000,'Da thanh toan'),(2,1,1,'2022-05-17 18:33:49',NULL,7500000,'Da thanh toan'),(3,1,1,'2022-05-17 18:34:38',NULL,12000000,'Da thanh toan');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,11 +113,14 @@ CREATE TABLE `orrderdetail` (
   `id` int NOT NULL AUTO_INCREMENT,
   `product_id` int DEFAULT NULL,
   `quantity` int NOT NULL,
-  `unit_price` varchar(45) NOT NULL,
+  `unit_price` double NOT NULL,
+  `order_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `orderdetail_ibpk_idx` (`product_id`),
-  CONSTRAINT `orderdetail_ibpk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `orderdetail_ibpk2_idx` (`order_id`),
+  CONSTRAINT `orderdetail_ibpk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `orderdetail_ibpk2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,6 +129,7 @@ CREATE TABLE `orrderdetail` (
 
 LOCK TABLES `orrderdetail` WRITE;
 /*!40000 ALTER TABLE `orrderdetail` DISABLE KEYS */;
+INSERT INTO `orrderdetail` VALUES (1,3,1,3500000,1),(2,1,2,12000000,1),(3,4,1,7500000,2),(4,2,1,12000000,3);
 /*!40000 ALTER TABLE `orrderdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-16 20:19:09
+-- Dump completed on 2022-05-17 18:40:58
