@@ -48,9 +48,7 @@
             <div class="title-holder-cell text-left">
               <h1 class="page-title">404 Error</h1>
               <ol class="breadcrumb">
-                <li><a href="home">Home</a></li>
-                <li>Pages</li>
-                <li class="active">Search</li>
+                <li><a href="Home">Home</a></li>
               </ol>
             </div>
           </div>
@@ -69,7 +67,7 @@
             <h2>${notfoundtxt}</h2>
         </div>
         <div class="center margin_bottom_30_all"> <img class="margin_bottom_30_all" src="images/it_service/notfound.png" alt="#"> </div>
-        <div class="center"> <a class="btn sqaure_bt light_theme_bt" href="home">${btn}</a> </div>
+        <div class="center"> <a class="btn sqaure_bt light_theme_bt" href="Home">${btn}</a> </div>
       </div>
     </div>
   </div>

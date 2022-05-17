@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -17,10 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,6 +41,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findByTotalPrice", query = "SELECT o FROM Orders o WHERE o.totalPrice = :totalPrice"),
     @NamedQuery(name = "Orders.findByStatus", query = "SELECT o FROM Orders o WHERE o.status = :status")})
 public class Orders implements Serializable {
+
+    @OneToMany(mappedBy = "orderId")
+    private Collection<Orrderdetail> orrderdetailCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -155,6 +161,15 @@ public class Orders implements Serializable {
     @Override
     public String toString() {
         return "Entity.Orders[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Orrderdetail> getOrrderdetailCollection() {
+        return orrderdetailCollection;
+    }
+
+    public void setOrrderdetailCollection(Collection<Orrderdetail> orrderdetailCollection) {
+        this.orrderdetailCollection = orrderdetailCollection;
     }
     
 }

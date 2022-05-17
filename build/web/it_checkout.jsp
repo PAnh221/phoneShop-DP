@@ -51,7 +51,7 @@
             <div class="title-holder-cell text-left">
               <h1 class="page-title">Checkout</h1>
               <ol class="breadcrumb">
-                <li><a href="home">Home</a></li>
+                <li><a href="Home">Home</a></li>
                 <li class="active">Checkout</li>
               </ol>
             </div>
@@ -87,12 +87,6 @@
                 <div class="form-field">
                   <label>Last name <span class="red">*</span></label>
                   <input name="ln" type="text">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-field">
-                  <label>Company name</label>
-                  <input name="cm" type="text">
                 </div>
               </div>
               <div class="col-md-12">
@@ -357,24 +351,6 @@
                   <textarea name="ad"></textarea>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-field">
-                  <label>Town / City <span class="red">*</span></label>
-                  <input name="tc" type="text">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-field">
-                  <label>State / County <span class="red">*</span></label>
-                  <input name="sc" type="text">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-field">
-                  <label>Postcode / ZIP <span class="red">*</span></label>
-                  <input name="pz" type="text">
-                </div>
-              </div>
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Phone <span class="red">*</span></label>
@@ -402,7 +378,11 @@
               </tr>
               <tr>
                 <td><h4>Subtotal</h4></td>
-                <td class="text-right"><h4>${total}</h4></td>
+                <td class="text-right"><h4>${subtotal}</h4></td>
+              </tr>
+              <tr>
+                <td><h5>Sale</h5></td>
+                <td class="text-right"><h4>${sale}</h4></td>
               </tr>
               <tr>
                 <td><h5>Estimated shipping</h5></td>
@@ -416,62 +396,42 @@
           </table>
         </div>
         <div class="center">
-            <button onclick="location.href='it_shop';" class="bt_main">Continue Shopping</button>
+            <button onclick="location.href='Shop';" class="bt_main">Continue Shopping</button>
         </div>
       </div>
+        <div class="col-sm-12 col-md-12">
+          <div class="product-table">
+              <table class="table">
+              <tbody>
+                  <form method="get" action="order">
+                      <tr class="cart-form">
+                        <td class="actions"><div class="coupon">
+                            <input type="hidden" name="action" value="voucher">
+                            <input name="coupon_code" class="input-text" id="coupon_code" placeholder="Coupon code" type="text">
+                            <input class="button" name="apply_coupon" value="Apply coupon" 
+                                   type="submit" style="color: #fff; text-align: center; border: none; background: #039ee3;
+                                   border-radius: 5px; height: 38px; min-width: 70px; padding: 0 15px; margin-left: 5px" >
+                          </div>
+                        </td>
+                      </tr>
+                 </form>
+              </tbody>
+            </table>
+          </div>
+        </div>
       <div class="col-sm-12">
         <div class="payment-form">
           <div class="col-xs-12 col-md-12">
             <!-- CREDIT CARD FORM STARTS HERE -->
             <div class="panel panel-default credit-card-box">
-              <div class="panel-heading display-table">
-                <div class="display-tr">
-                  <h3 class="panel-title display-td">Payment Details</h3>
-                  <div class="display-td"> <img class="img-responsive pull-right" src="images/it_service/accepted.png" alt="#"> </div>
-                </div>
-              </div>
               <div class="panel-body">
-                <form id="payment-form" method="POST" action="index.jsp">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-field">
-                        <label>Card Number</label>
-                        <div class="form-field cardNumber">
-                          <input name="cardNumber" placeholder="Valid Card Number" required="" type="tel">
-                          <span class="input-group-addon"><i class="fa fa-credit-card"></i></span> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-12 col-md-7">
-                      <div class="form-field">
-                        <label><span class="hidden-xs">Expiration</span><span class="visible-xs-inline">EXP</span> Date</label>
-                        <input name="cardExpiry" placeholder="MM / YY" required="" type="tel">
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-md-5 pull-right">
-                      <div class="form-field">
-                        <label>CV Code</label>
-                        <input name="cardCVC" placeholder="CVC" required="" type="tel">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-field">
-                        <label>Coupon Code</label>
-                        <input name="couponCode" required="" type="text">
-                      </div>
-                    </div>
-                  </div>
                   <div class="row">
                     <div class="col-md-12 payment-bt">
                       <div class="center">
-                        <button onclick="location.href='invoice?action=pay';" class="bt_main">Click to Pay</button>
+                        <button onclick="location.href='order?action=pay';" class="bt_main">Click to Pay</button>
                       </div>
                     </div>
                   </div>
-                </form>
               </div>
             </div>
             <!-- CREDIT CARD FORM ENDS HERE -->

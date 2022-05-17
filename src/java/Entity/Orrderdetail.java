@@ -44,10 +44,13 @@ public class Orrderdetail implements Serializable {
     private int quantity;
     @Basic(optional = false)
     @Column(name = "unit_price")
-    private String unitPrice;
+    private double unitPrice;
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     @ManyToOne
     private Product productId;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @ManyToOne
+    private Orders orderId;
 
     public Orrderdetail() {
     }
@@ -56,7 +59,7 @@ public class Orrderdetail implements Serializable {
         this.id = id;
     }
 
-    public Orrderdetail(Integer id, int quantity, String unitPrice) {
+    public Orrderdetail(Integer id, int quantity, Double unitPrice) {
         this.id = id;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
@@ -78,14 +81,6 @@ public class Orrderdetail implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
     public Product getProductId() {
         return productId;
     }
@@ -93,7 +88,22 @@ public class Orrderdetail implements Serializable {
     public void setProductId(Product productId) {
         this.productId = productId;
     }
+    
+    public Orders getOrderId() {
+        return orderId;
+    }
 
+    public void setOrderId(Orders orderId) {
+        this.orderId = orderId;
+    }
+    
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
     @Override
     public int hashCode() {
         int hash = 0;
@@ -118,5 +128,9 @@ public class Orrderdetail implements Serializable {
     public String toString() {
         return "Entity.Orrderdetail[ id=" + id + " ]";
     }
+
+
+
+
     
 }

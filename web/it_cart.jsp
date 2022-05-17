@@ -81,35 +81,24 @@
                   <c:forEach var="item" items="${listcart}">
                     <form method="get" action="cart">
                         <input type="hidden" name="action" value="update">
-                        <input type="hidden" name="proid" value="${item.cartPK.getProid()}">
-                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${item.image}" alt="#"></a>
+                        <input type="hidden" name="proid" value="${item.productId.getId()}">
+                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${item.productId.getImage()}" alt="#"></a>
                             <div class="media-body">
-                              <h4 class="media-heading"><a href="#">${item.proname}</a></h4>
+                              <h4 class="media-heading"><a href="#">${item.productId.getName()}</a></h4>
                           </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center"><input class="form-control" min="1" max="${maxitem}" name="quantity" value="${item.amount}" type="number">
+                        <td class="col-sm-1 col-md-1" style="text-align: center"><input class="form-control" min="1" max="${maxitem}" name="quantity" value="${item.quantity}" type="number">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><p class="price_table">${item.getPriceCurrencyFormat()}</p></td>
-                        <td class="col-sm-1 col-md-1 text-center"><p class="price_table">${item.getTotalCurrencyFormat()}</p></td>
+                        <td class="col-sm-1 col-md-1 text-center"><p class="price_table">${item.productId.getPriceCurrencyFormat()}</p></td>
+                        <td class="col-sm-1 col-md-1 text-center"><p class="price_table">${item.getUnitCurrencyFormat()}</p></td>
                         <td class="col-sm-1 col-md-1"><button type="submit" class="bt_main">Update</button></td>
                     </form>
                     <form method="get" action="cart">
                         <input type="hidden" name="action" value="remove">
-                        <input type="hidden" name="proid" value="${item.cartPK.getProid()}">
+                        <input type="hidden" name="proid" value="${item.productId.getId()}">
                         <td class="col-sm-1 col-md-1"><button type="submit" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
                     </form>
               </tr>
                 </c:forEach>
-            </tbody>
-          </table>
-          <table class="table">
-            <tbody>
-              <tr class="cart-form">
-                <td class="actions"><div class="coupon">
-                    <input name="coupon_code" class="input-text" id="coupon_code" placeholder="Coupon code" type="text">
-                    <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -133,8 +122,8 @@
                 <td class="text-right"><h4>${sum}</h4></td>
               </tr>
               <tr>                  
-                <td><button type="button" onclick="location.href='it_shop';" class="button">Continue Shopping</button></td>
-                <td><button type="button" onclick="location.href='invoice?action=checkout';" class="button">Checkout</button></td>
+                <td><button type="button" onclick="location.href='Shop';" class="button">Continue Shopping</button></td>
+                <td><button type="button" onclick="location.href='order?action=checkout';" class="button">Checkout</button></td>
               </tr>
             </tbody>
           </table>

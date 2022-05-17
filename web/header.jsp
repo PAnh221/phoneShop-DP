@@ -59,8 +59,8 @@
                 <li> <a href="Shop">Shop</a>
                   <ul>
                     <li><a href="Shop">Shop List</a></li>
-                    <li><a href="showcart">Shopping Cart</a></li>
-                    <li><a href="invoice?action=show">Checkout</a></li>
+                    <li><a href="cart?action=show">Shopping Cart</a></li>
+                    <li><a href="order?action=show">Checkout</a></li>
                   </ul>
                 </li>
                 <li> <a href="it_contact.jsp">Contact</a>

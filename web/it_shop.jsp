@@ -70,7 +70,7 @@
             <c:forEach var ="item" items="${listProduct}">
           <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
             <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="<c:out value="${item.image}"></c:out>" alt="product"> </div>
+                <div class="product_img"><a href="productdetail?pid=${item.id}"> <img class="img-responsive" src="<c:out value="${item.image}"></c:out>" alt="product"> </div>
               <div class="product_detail_btm">
                 <div class="center">
                     <h4><a href="productdetail?pid=${item.id}"><c:out value="${item.name}"></c:out></a></h4>

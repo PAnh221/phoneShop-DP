@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cart.findByQuantity", query = "SELECT c FROM Cart c WHERE c.quantity = :quantity")})
 public class Cart implements Serializable {
 
+    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +50,8 @@ public class Cart implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne
     private User userId;
+    @Column(name = "unit_price")
+    private Double unitPrice;
 
     public Cart() {
     }
@@ -91,6 +96,18 @@ public class Cart implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
+    
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+    public String getUnitCurrencyFormat() {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format((unitPrice));
+    }
 
     @Override
     public int hashCode() {
@@ -116,5 +133,7 @@ public class Cart implements Serializable {
     public String toString() {
         return "Entity.Cart[ id=" + id + " ]";
     }
+
+    
     
 }

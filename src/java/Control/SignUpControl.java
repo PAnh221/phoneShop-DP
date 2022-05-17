@@ -45,8 +45,7 @@ public class SignUpControl extends HttpServlet {
 	String address = request.getParameter("address");
 	String password_1 = request.getParameter("password_1");
 	String password_2 = request.getParameter("password_2");
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
+        Date registerDate = new Date();
         
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
@@ -81,7 +80,7 @@ public class SignUpControl extends HttpServlet {
             user.setEmail(email);
             user.setPassword(password_1);
             user.setPermission(0);
-            user.setRegisterdate(date);
+            user.setRegisterdate(registerDate);
             
             userDao.addUser(user);
             request.setAttribute("username", username);
