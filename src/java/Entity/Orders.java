@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -136,6 +137,11 @@ public class Orders implements Serializable {
 
     public void setUserId(User userId) {
         this.userId = userId;
+    }
+    
+    public String getTotalPriceCurrencyFormat() {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format((totalPrice));
     }
 
     @Override

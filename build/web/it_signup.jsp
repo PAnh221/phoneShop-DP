@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sign up Page</title>
         <link rel="stylesheet" href="css/login.css" />
+        <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
     </head>
     <body>
         <div class="signup-header">

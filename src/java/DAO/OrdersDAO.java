@@ -13,6 +13,13 @@ public class OrdersDAO {
     public OrdersDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();
     }
+    
+    public List<Orders> getAllOrder() {
+        Query query = em.createQuery("SELECT p FROM Orders p");
+        List<Orders> list = query.getResultList();
+        return list;
+    }
+    
     public void addToOrders(Orders orders){
         EntityTransaction trans = em.getTransaction();
         try{
@@ -23,6 +30,7 @@ public class OrdersDAO {
             trans.rollback();
         }
     }
+    
     public void updateOrders(Orders orders){
         EntityTransaction trans = em.getTransaction();
         try{

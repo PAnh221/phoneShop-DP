@@ -5,6 +5,7 @@
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
 </head>
 <body>
     <div class="signup-header">
