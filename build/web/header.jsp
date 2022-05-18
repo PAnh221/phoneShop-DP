@@ -26,6 +26,7 @@
                         <c:when test="${session != null}">
                             <li><a href="logout" style="color: #F24638;font-size:16px">Logout</a></li>
                             <li><a href="#" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
+                            <li><a href="#" style="font-size:14px"><b>Profile</b></a></li>
                         </c:when>
                     </c:choose>                    
             </ul>

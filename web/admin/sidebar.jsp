@@ -5,19 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="img/favicon.png">
+<link rel="shortcut icon" href="admin/img/favicon.png">
 <title>ADMIN PAGE</title>
 <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="admin/css/bootstrap.min.css" rel="stylesheet">
   <!-- bootstrap theme -->
-  <link href="css/bootstrap-theme.css" rel="stylesheet">
+  <link href="admin/css/bootstrap-theme.css" rel="stylesheet">
   <!--external css-->
   <!-- font icon -->
-  <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="admin/css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
   <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet" />
+  <link href="admin/css/style.css" rel="stylesheet">
+  <link href="admin/css/style-responsive.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -25,21 +25,21 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="active">
-            <a class="" href="ProductsForward">
-                          <i class="icon_house_alt"></i>
-                          <span>Trang chủ</span>
+          <li class="sub-menu">
+            <a href="manageorder" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>ORDER LIST</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="ProductsForward" class="">
+            <a href="" class="">
                           <i class="icon_document_alt"></i>
-                          <span>Danh sách sản phẩm</span>
+                          <span></span>
                        
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="InsertForward" class="">
+            <a href="" class="">
                           <i class="icon_desktop"></i>
                           <span>Thêm sản phẩm</span>
                           

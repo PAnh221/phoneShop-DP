@@ -30,10 +30,6 @@
 <link rel="stylesheet" type="text/css" href="revolution/css/settings.css" />
 <link rel="stylesheet" type="text/css" href="revolution/css/layers.css" />
 <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css" />
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
 </head>
 <body id="default_theme" class="it_service">
 <!-- loader -->
@@ -399,6 +395,6 @@
 <script defer src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script defer src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script defer src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-
+<!---->
 </body>
 </html>

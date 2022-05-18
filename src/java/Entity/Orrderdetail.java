@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -104,6 +105,11 @@ public class Orrderdetail implements Serializable {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+    public String getUnitPriceCurrencyFormat() {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format((unitPrice));
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

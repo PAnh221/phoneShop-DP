@@ -48,10 +48,11 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i>Orders</h3>
+              <h3 class="page-header"><i class="fa fa fa-bars"></i>DETAIL ORDER <b>${IdOrder}</b></h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
               <li style="color: #688a7e; margin-bottom:50px">Orders</li>
+              <li style="color: #688a7e; margin-bottom:50px">Order Detail</li>
             </ol>
           </div>
         </div>
@@ -61,46 +62,23 @@
 			  <thead>
 			    <tr>
 			      <th scope="col">ID</th>
-			      <th scope="col">USERNAME</th>
-                              <th scope="col">FULL NAME</th>
-			      <th scope="col">EMAIL</th>
-			      <th scope="col">ADDRESS</th>
-			      <th scope="col">TOTAL PRICE</th>
-			      <th scope="col">CREATE DATE</th>
-			      <th scope="col">STATUS</th>
-			      <th scope="col">VOUCHER</th>
-                              <th scope="col">SHIP CODE</th>
-                              <th scope="col"></th>
+			      <th scope="col">PRODUCT</th>
+                              <th scope="col">BRAND</th>
+                              <th scope="col">QUANTITY</th>
+			      <th scope="col">PRICE</th>
+			      <th scope="col">UNIT PRICE</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <c:forEach var ="item" items="${listOrders}">
+			    <c:forEach var ="item" items="${listOrderDetail}">
                                     <tr>
-				      <th scope="row">${item.id}</th>
-				      <td>${item.userId.getUsername()}</td>
-				      <td>${item.userId.getName()}</td>
-				      <td>${item.userId.getEmail()}</td>
-				      <td>${item.userId.getAddress()}</td>
-				      <td>${item.getTotalPriceCurrencyFormat()}</td>
-				      <td>${item.createDate}</td>
-				      <td>${item.status}</td>
-                                      <c:choose>
-                                            <c:when test="${item.voucher == 1}">
-                                                <td>0%</td>
-                                            </c:when>
-                                            <c:when test="${item.voucher != 1}">
-                                                <td>10%</td>                                                
-                                            </c:when>
-                                        </c:choose>
-				      <td>${item.shipCode}</td>
-                                      <form method="post" action="ManageOrderDetail">
-                                        <input type="hidden" name="orderId" value="${item.id}">
-                                        <td>
-                                          <input value="Detail" type="submit" style="color: #fff; text-align: center; border: none;
-                                                 background: #039ee3;border-radius: 5px; height: 38px; min-width:
-                                                 70px; padding: 0 15px; margin-left: 5px">
-                                        </td>
-                                      </form>
+                                        <th scope="row" style="font-size: 20px">${item.id}</th>
+                                      <td><img style="width: 88px; height: 88px" src="${item.productId.getImage()}" alt="Image Product">
+                                                <h4 style="color: #212121; margin-right: 20px;">${item.productId.getName()}</h4></td>
+				      <td style="font-size: 20px">${item.productId.idBrand.getName()}</td>
+				      <td style="font-size: 20px">${item.quantity}</td>
+				      <td style="font-size: 20px">${item.productId.getPriceCurrencyFormat()}</td>
+				      <td style="font-size: 20px">${item.getUnitPriceCurrencyFormat()}</td>
 				    </tr>
 				</c:forEach>
 			  </tbody>
@@ -130,7 +108,7 @@
   <script src="admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
   <script src="admin/js/owl.carousel.js"></script>
   <!-- jQuery full calendar -->
-  <script src="admin/js/fullcalendar.min.js"></script>
+  <<script src="admin/js/fullcalendar.min.js"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="admin/ssets/fullcalendar/fullcalendar/fullcalendar.js"></script>
     <!--script for this page only-->

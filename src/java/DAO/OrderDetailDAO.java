@@ -3,6 +3,7 @@ package DAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import Entity.*;
+import java.util.List;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
@@ -11,6 +12,14 @@ public class OrderDetailDAO {
 
     public OrderDetailDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();
+    }
+    
+    public List<Orrderdetail> getAllOrderDetail(String id) {
+        int order_id=Integer.parseInt(id);
+        Query query = em.createQuery("SELECT p FROM Orrderdetail p WHERE p.orderId.id = ?1");
+        query.setParameter(1,order_id);
+        List<Orrderdetail> list = query.getResultList();
+        return list;
     }
     
     public void addToOrderDetail(Orrderdetail detail){
