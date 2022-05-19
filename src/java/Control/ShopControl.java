@@ -32,7 +32,7 @@ public class ShopControl extends HttpServlet {
             action = "it_shop_controller";
         }
         if (action.equals("it_shop_controller")){
-            emf=Persistence.createEntityManagerFactory("Phone_webPU");
+            emf = Persistence.createEntityManagerFactory("Phone_webPU");
             em = emf.createEntityManager();
             productDao = new ProductDAO(emf);
             brandDao = new BrandDAO(emf);
