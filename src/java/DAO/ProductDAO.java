@@ -95,6 +95,15 @@ public class ProductDAO {
         List<Product> list = query.setFirstResult((index-1)*6).setMaxResults(6).getResultList();
         return list;
     }
+    
+    public boolean checkBrandExistInProduct(String id){
+        int idBrand=Integer.parseInt(id);
+        Query query = em.createQuery("select p from Product p where p.idBrand.id = ?1");
+        query.setParameter(1,idBrand);
+        List<Product> list = query.getResultList();
+        return !list.isEmpty();
+    }
+    
     public void close() {
         em.close();
     }

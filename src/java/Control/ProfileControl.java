@@ -33,15 +33,6 @@ public class ProfileControl extends HttpServlet {
         String url = "/it_profile.jsp";
         request.setCharacterEncoding("UTF-8");
         
-
-//        String page = request.getParameter("page");
-//        
-//        if(page==null){
-//            url="/Home";
-//            getServletContext()
-//                .getRequestDispatcher(url)
-//                .forward(request, response);
-//        }
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
         userDao = new UserDAO(emf); 

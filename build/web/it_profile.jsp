@@ -37,15 +37,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 
-<link rel="stylesheet" href="style_profile.css">
+<link rel="stylesheet" href="css/style_profile.css">
 </head>
-<body id="default_theme" class="it_shop_list">
+<body id="default_theme" class="it_service">
 <!-- loader -->
 <div class="bg_load"> <img class="loader_animation" src="images/loaders/loader_1.png" alt="#" /> </div>
 <!-- end loader -->
 <!-- header -->
-<%@include   file="header.jsp" %> 
-<!-- end header -->
+<%@include   file="header.jsp" %> <!-- end header -->
 <!-- inner page banner -->
 <div id="inner_banner" class="section inner_banner_section">
   <div class="container">
@@ -162,6 +161,17 @@
 <script defer src="js/wow.js"></script>
 <!-- custom js -->
 <script defer src="js/custom.js"></script>
-
+<!-- revolution js files -->
+<script defer src="revolution/js/jquery.themepunch.tools.min.js"></script>
+<script defer src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script defer src="revolution/js/extensions/revolution.extension.video.min.js"></script>
 </body>
 </html>

@@ -32,9 +32,9 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="" class="">
+            <a href="managebrand?action=show" class="">
                           <i class="icon_document_alt"></i>
-                          <span></span>
+                          <span>BRAND LIST</span>
                        
                       </a>
           </li>

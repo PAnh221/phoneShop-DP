@@ -49,7 +49,7 @@ public class ProductDetailControl extends HttpServlet {
         request.setAttribute("listRelatedProduct", listRelatedProduct);
         
         List<Brand> listCategory = new ArrayList<Brand>();
-        listCategory = brandDao.getAll();
+        listCategory = brandDao.getAllBrand();
         request.setAttribute("tag",brandid);
         request.setAttribute("listCategory", listCategory);
         

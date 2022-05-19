@@ -46,7 +46,7 @@ public class BrandControl extends HttpServlet {
         request.setAttribute("pageNum", countPage);
 
         List<Brand> listCategory = new ArrayList<Brand>();
-        listCategory = brandDao.getAll();
+        listCategory = brandDao.getAllBrand();
         request.setAttribute("tag",tag);
         request.setAttribute("listCategory", listCategory);
         

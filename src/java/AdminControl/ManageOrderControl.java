@@ -29,7 +29,6 @@ public class ManageOrderControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url="/admin/index.jsp";
   
-        
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
         ordersDao = new OrdersDAO(emf);

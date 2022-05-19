@@ -51,7 +51,7 @@ public class SearchControl extends HttpServlet {
         request.setAttribute("txtsearch",txtsearch);
         
         List<Brand> listCategory = new ArrayList<Brand>();
-        listCategory = brandDao.getAll();
+        listCategory = brandDao.getAllBrand();
         request.setAttribute("listCategory", listCategory);
         
         List<String> listTagSearch = new ArrayList<>();

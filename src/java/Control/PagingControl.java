@@ -57,7 +57,7 @@ public class PagingControl extends HttpServlet {
         request.setAttribute("indexPage",indexPage);
         
         List<Brand> listCategory = new ArrayList<Brand>();
-        listCategory = brandDao.getAll();
+        listCategory = brandDao.getAllBrand();
         request.setAttribute("tag",brandid);
         request.setAttribute("listCategory", listCategory);
         

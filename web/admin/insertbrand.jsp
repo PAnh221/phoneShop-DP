@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="img/favicon.png">
+<link rel="icon" href="../images/fevicon/fevicon.png" type="image/gif" />
 <title>ADMIN PAGE</title>
 <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,9 +15,21 @@
   <!-- font icon -->
   <link href="css/elegant-icons-style.css" rel="stylesheet" />
   <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- full calendar css-->
+  <link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+  <link href="assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+  <!-- easy pie chart-->
+  <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+  <link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
   <!-- Custom styles -->
+  <link rel="stylesheet" href="css/fullcalendar.css">
+  <link href="css/widgets.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
+  <link href="css/xcharts.min.css" rel=" stylesheet">
+  <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -36,7 +48,7 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h4 class="page-header"><i class="fa fa fa-bars"></i> Pages</h4>
+            <h4 class="page-header"><i class="fa fa fa-bars"></i>Add New Brand Pages</h4>
             <div style="padding:5px; color:red;font-style:italic;">
 		       ${errorMessage}
 		    </div>
@@ -44,20 +56,26 @@
         </div>
         
         <!-- page start-->
-        <form method="post" action="InsertCategory">
+        <form method="post" action="../managebrand?action=add">
 		  <div class="form-group row">
-		    <label for="inputPassword" class="col-sm-2 col-form-label">Tên danh mục</label>
+		    <label style="font-size: 20px; color:#000000" for="inputBrandName" class="col-sm-2 col-form-label">Brand Name</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="" name="CategoryName">
+                        <input style="width: 50%" type="text" class="form-control" name="BrandName">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label for="inputPassword" class="col-sm-2 col-form-label">AdminID</label>
+		    <label style="font-size: 20px; color:#000000" for="inputBrandImage" class="col-sm-2 col-form-label">Image</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="" name="AdminID">
+		      <input style="width: 50%" type="text" class="form-control" placeholder="Enter link image" name="BrandImage">
 		    </div>
 		  </div>
-		  <button type="submit" class="btn btn-primary" value="Upload" >Thêm danh mục</button>
+                  <div class="form-group row">
+		    <label style="font-size: 20px; color:#000000" for="inputBrandDescription" class="col-sm-2 col-form-label">Description</label>
+		    <div class="col-sm-10">
+		      <input style="width: 60%" type="text" class="form-control" name="BrandDescription">
+		    </div>
+		  </div>
+                <button style="float: right; margin-right: 400px" type="submit" class="btn btn-primary">Confirm</button>
 		</form>
         	
         <!-- page end-->
