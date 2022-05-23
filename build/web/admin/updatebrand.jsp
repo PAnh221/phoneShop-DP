@@ -5,13 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
 <title>ADMIN PAGE</title>
 <!-- Bootstrap CSS -->
   <link href="admin/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="icon" href="../images/fevicon/fevicon.png" type="image/gif" />
   <!-- bootstrap theme -->
   <link href="admin/css/bootstrap-theme.css" rel="stylesheet">
   <!--external css-->
+  <!-- font icon -->
+  <link href="admin/css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
   <!-- full calendar css-->
   <link href="admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
   <link href="admin/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
@@ -20,9 +23,6 @@
   <!-- owl carousel -->
   <link rel="stylesheet" href="admin/css/owl.carousel.css" type="text/css">
   <link href="admin/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-  <!-- font icon -->
-  <link href="admin/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
   <!-- Custom styles -->
   <link rel="stylesheet" href="admin/css/fullcalendar.css">
   <link href="admin/css/widgets.css" rel="stylesheet">
@@ -31,7 +31,7 @@
   <link href="admin/css/xcharts.min.css" rel=" stylesheet">
   <link href="admin/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#dddddd">
 
 	<!-- container section start -->
   <section id="container" class="">
@@ -39,50 +39,46 @@
 	<jsp:include page="header.jsp"></jsp:include>
     <!--header end-->
 
-    <!--sidebar start-->
-	<jsp:include page="sidebar.jsp"></jsp:include>
-    <!--sidebar end-->
-
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-12">
-              <h3 class="page-header"><i class="fa fa fa-bars"></i>DETAIL ORDER <b>${IdOrder}</b></h3>
+            <div class="col-lg-12" >
+            <h4 class="page-header"><i class="fa fa fa-bars"></i>Update Brand Pages</h4>
+            <div style="padding:5px; color:red;font-style:italic;">
+		       ${errorMessage}
+		    </div>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
-              <li style="color: #688a7e; margin-bottom:50px">Orders</li>
-              <li style="color: #688a7e; margin-bottom:50px">Order Detail</li>
+              <li><i class="fa fa-bars"></i><a href="managebrand?action=show">Brand</a></li>
             </ol>
           </div>
         </div>
         
         <!-- page start-->
-        	<table class="table">
-			  <thead>
-			    <tr>
-			      <th scope="col">ID</th>
-			      <th scope="col">PRODUCT</th>
-                              <th scope="col">BRAND</th>
-                              <th scope="col">QUANTITY</th>
-			      <th scope="col">PRICE</th>
-			      <th scope="col">UNIT PRICE</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <c:forEach var ="item" items="${listOrderDetail}">
-                                    <tr>
-                                        <th scope="row" style="font-size: 20px">${item.id}</th>
-                                      <td style="width: 150px"><img style="width: 88px; height: 88px" src="${item.productId.getImage()}" alt="Image Product">
-                                                <h4 style="color: #212121; margin-right: 20px;">${item.productId.getName()}</h4></td>
-				      <td style="font-size: 20px">${item.productId.idBrand.getName()}</td>
-				      <td style="font-size: 20px;width: 40px">${item.quantity}</td>
-				      <td style="font-size: 20px">${item.productId.getPriceCurrencyFormat()}</td>
-				      <td style="font-size: 20px">${item.getUnitPriceCurrencyFormat()}</td>
-				    </tr>
-				</c:forEach>
-			  </tbody>
-			</table>
+        <form method="post" action="managebrand?action=confirmupdate">
+            <input type="hidden" name="brandId" value="<c:out value="${brandInfo.id}"></c:out>">
+		  <div class="form-group row">
+		    <label style="font-size: 20px; color:#000000" for="inputBrandName" class="col-sm-2 col-form-label">Brand Name</label>
+		    <div class="col-sm-10">
+                        <input style="width: 50%" type="text" class="form-control" placeholder="Enter name" value="<c:out value="${brandInfo.name}"></c:out>" name="BrandName">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label style="font-size: 20px; color:#000000" for="inputBrandImage" class="col-sm-2 col-form-label">Image</label>
+		    <div class="col-sm-10">
+		      <input style="width: 50%" type="text" class="form-control" placeholder="Enter link image" value="<c:out value="${brandInfo.image}"></c:out>" name="BrandImage">
+		    </div>
+		  </div>
+                  <div class="form-group row">
+		    <label style="font-size: 20px; color:#000000" for="inputBrandDescription" class="col-sm-2 col-form-label">Description</label>
+		    <div class="col-sm-10">
+		      <input style="width: 60%" type="text" class="form-control" placeholder="Enter Description" value="<c:out value="${brandInfo.description}"></c:out>" name="BrandDescription">
+		    </div>
+		  </div>
+                <button style="float: right; margin-right: 400px" type="submit" class="btn btn-primary">Confirm</button>
+		</form>
+        	
         <!-- page end-->
         
       </section>
@@ -104,13 +100,13 @@
   <script src="admin/js/jquery.nicescroll.js" type="text/javascript"></script>
   <!-- charts scripts -->
   <script src="admin/assets/jquery-knob/js/jquery.knob.js"></script>
-  <script src="admin/s/jquery.sparkline.js" type="text/javascript"></script>
+  <script src="admin/js/jquery.sparkline.js" type="text/javascript"></script>
   <script src="admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
   <script src="admin/js/owl.carousel.js"></script>
   <!-- jQuery full calendar -->
   <<script src="admin/js/fullcalendar.min.js"></script>
     <!-- Full Google Calendar - Calendar -->
-    <script src="admin/ssets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+    <script src="admin/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
     <!--script for this page only-->
     <script src="admin/js/calendar-custom.js"></script>
     <script src="admin/js/jquery.rateit.min.js"></script>

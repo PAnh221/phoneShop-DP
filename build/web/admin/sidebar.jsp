@@ -39,30 +39,16 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Thêm sản phẩm</span>
+            <a href="manageproduct?action=show" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>PRODUCT LIST</span>
                           
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="CategoryForward" class="">
+            <a href="#" class="">
                           <i class="icon_document_alt"></i>
-                          <span>Danh sách danh mục</span>
-                       
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="InsertCategory" class="">
-                          <i class="icon_desktop"></i>
-                          <span>Thêm danh mục</span>
-                          
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="OrderForward" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Hóa đơn</span>
+                          <span>USER LIST</span>
                        
                       </a>
           </li>

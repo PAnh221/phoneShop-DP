@@ -32,6 +32,14 @@ public class OrderDetailDAO {
             trans.rollback();
         }
     }
+    
+    public boolean checkProductExistInOrderDetail(String id){
+        int idProduct = Integer.parseInt(id);
+        Query query = em.createQuery("select p from Orrderdetail p where p.productId.id = ?1");
+        query.setParameter(1,idProduct);
+        List<Product> list = query.getResultList();
+        return !list.isEmpty();
+    }
    
     
     public void close() {

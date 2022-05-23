@@ -30,7 +30,7 @@ public class ProfileControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = "/it_profile.jsp";
+        String url = "";
         request.setCharacterEncoding("UTF-8");
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
@@ -52,13 +52,14 @@ public class ProfileControl extends HttpServlet {
         String action = request.getParameter("action");
         if (action == null) {
             action = "show";
-            url = "/it_profile.jsp";
         }
         if (action.equals("show")) {
             listUser = new ArrayList<User>();
             listUser = userDao.searchByUsername(username);
-            if (!listUser.isEmpty())
+            if (!listUser.isEmpty()){
+                url="/it_profile.jsp";
                 request.setAttribute("userInfo", listUser.get(0));
+            }
         }
         if (action.equals("update")) {
             if (!listUser.isEmpty()) {

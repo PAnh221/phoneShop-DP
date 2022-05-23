@@ -28,6 +28,10 @@ public class ManageBrandControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
+        String id = request.getParameter("brandId");
+        String name = request.getParameter("BrandName");
+        String image = request.getParameter("BrandImage");
+        String description = request.getParameter("BrandDescription");
         String url="";
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
@@ -45,12 +49,8 @@ public class ManageBrandControl extends HttpServlet {
             url="/admin/brand.jsp";
         }
         else if(action.equals("add")){
-            String name = request.getParameter("BrandName");
-            String image = request.getParameter("BrandImage");
-            String description = request.getParameter("BrandDescription");
-            
             if(brandDao.checkExistBrand(name)){
-                request.setAttribute("errorMessage", name +"Already Exsist");
+                request.setAttribute("errorMessage", name +" Already Exsist");
                 url="/admin/insertbrand.jsp";
             }
             else{
@@ -66,17 +66,33 @@ public class ManageBrandControl extends HttpServlet {
             }
         }
         else if(action.equals("delete")){
-          String id = request.getParameter("brandId");
-          if(productDao.checkBrandExistInProduct(id)){
-              request.setAttribute("Message", "You Can't Delete This Brand");
-                url="/managebrand?action=show";
-          }
-          else{
-            brandDao.deleteBrand(id);
+            if(productDao.checkBrandExistInProduct(id)){
+                request.setAttribute("Message", "You Can't Delete This Brand");         
+            }
+            else{
+              brandDao.deleteBrand(id);
 
-            request.setAttribute("Message", "Delete Brand Successed");
+              request.setAttribute("Message", "Delete Brand Successed");
+            }
             url="/managebrand?action=show";
-          }
+        }
+        else if(action.equals("showupdate")){
+            Brand brand = brandDao.searchById(id);
+            
+            request.setAttribute("brandInfo", brand);
+            url="/admin/updatebrand.jsp";
+        }
+        else if(action.equals("confirmupdate")){
+            Brand brand = brandDao.searchById(id);
+            
+            brand.setName(name);
+            brand.setImage(image);
+            brand.setDescription(description);
+            
+            brandDao.updateBrand(brand);
+            
+            request.setAttribute("Message", "Update Brand Successed");
+            url="/managebrand?action=show";
         }
         
         getServletContext()

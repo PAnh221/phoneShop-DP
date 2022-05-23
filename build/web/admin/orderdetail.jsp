@@ -73,10 +73,10 @@
 			    <c:forEach var ="item" items="${listOrderDetail}">
                                     <tr>
                                         <th scope="row" style="font-size: 20px">${item.id}</th>
-                                      <td><img style="width: 88px; height: 88px" src="${item.productId.getImage()}" alt="Image Product">
+                                      <td style="width: 150px"><img style="width: 88px; height: 88px" src="${item.productId.getImage()}" alt="Image Product">
                                                 <h4 style="color: #212121; margin-right: 20px;">${item.productId.getName()}</h4></td>
 				      <td style="font-size: 20px">${item.productId.idBrand.getName()}</td>
-				      <td style="font-size: 20px">${item.quantity}</td>
+				      <td style="font-size: 20px;width: 40px">${item.quantity}</td>
 				      <td style="font-size: 20px">${item.productId.getPriceCurrencyFormat()}</td>
 				      <td style="font-size: 20px">${item.getUnitPriceCurrencyFormat()}</td>
 				    </tr>

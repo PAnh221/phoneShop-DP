@@ -58,6 +58,7 @@ public class LoginControl extends HttpServlet {
                 
                 session = request.getSession();
                 session.setAttribute("session", session);
+                session.setAttribute("permission", user.getPermission());
                 session.setAttribute("username", username);
                 
             }

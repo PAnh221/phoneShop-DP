@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import Entity.*;
+import javax.persistence.EntityTransaction;
 public class ProductDAO {
     private final EntityManager em;
 
@@ -17,16 +18,35 @@ public class ProductDAO {
         return em.find(Product.class, id);
     }
     
+    public void addNewProduct(Product product){
+        EntityTransaction trans = em.getTransaction();
+        try{
+            trans.begin();
+            em.persist(product);
+            trans.commit();
+        }catch(Exception ex){
+            trans.rollback();
+        }
+    }
+    
     public void updateProduct(Product product) {
         em.getTransaction().begin();
         em.merge(product);
         em.getTransaction().commit();
     }
 
-    public void removeProduct(Product product) {
-        em.getTransaction().begin();
-        em.remove(product);
-        em.getTransaction().commit();
+    public void deleteProduct(String id){
+        int bid = Integer.parseInt(id);
+        EntityTransaction trans = em.getTransaction();
+        try{
+            trans.begin();
+            Query query = em.createQuery("delete from Product p where p.id = ?1");
+            query.setParameter(1,bid);
+            query.executeUpdate();
+            trans.commit();
+        }catch(Exception ex){
+            trans.rollback();
+        }
     }
 
     public List<Product> getAll() {
@@ -100,6 +120,13 @@ public class ProductDAO {
         int idBrand=Integer.parseInt(id);
         Query query = em.createQuery("select p from Product p where p.idBrand.id = ?1");
         query.setParameter(1,idBrand);
+        List<Product> list = query.getResultList();
+        return !list.isEmpty();
+    }
+    
+    public boolean checkExistProduct(String name){
+        Query query = em.createQuery("select p from Product p where p.name = ?1");
+        query.setParameter(1,name);
         List<Product> list = query.getResultList();
         return !list.isEmpty();
     }

@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="img/favicon.png">
 <title>ADMIN PAGE</title>
 <!-- Bootstrap CSS -->
   <link href="admin/css/bootstrap.min.css" rel="stylesheet">
@@ -49,13 +48,13 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>BRAND</h3>
             <div style="padding:5px; color:red;font-style:italic;">
 		       ${Message}
 		    </div>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
-              <li><i class="fa fa-bars"></i><a href="index.jsp">Brand</a></li>
+              <li><i class="fa fa-bars"></i><a href="managebrand?action=show">Brand</a></li>
             </ol>
           </div>
         </div>
@@ -78,10 +77,10 @@
 			  <tbody>
 			    <c:forEach var ="item" items="${listBrand}">
 					<tr>
-				      <th scope="row" style="font-size: 20px">${item.id}</th>
-                                      <td><img style="width: 88px; height: 68px" src="${item.image}" alt="Image Brand">
+				      <th scope="row" style="font-size: 20px;width: 50px">${item.id}</th>
+                                      <td  style="width: 150px"><img style="width: 88px; height: 68px" src="${item.image}" alt="Image Brand">
                                                 <h4 style="color: #212121; margin-right: 20px;">${item.name}</h4></td>
-				      <td style="font-size: 20px">${item.description}</td>
+				      <td style="font-size: 20px; width: 800px">${item.description}</td>
                                       <td>
                                         <form method="post" action="managebrand">
                                             <input type="hidden" name="action" value="delete">
@@ -91,7 +90,8 @@
                                                  70px; padding: 0 15px; margin-left: 5px">
                                         </form>
                                             <form style="float: left" method="post" action="managebrand">
-                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="action" value="showupdate">
+                                            <input type="hidden" name="brandId" value="${item.id}">
                                           <input value="Edit" type="submit" style="color: #fff; text-align: center; border: none;
                                                  background: #039ee3;border-radius: 5px; height: 38px; min-width:
                                                  70px; padding: 0 15px; margin-left: 5px; margin-top: 5px">

@@ -36,22 +36,60 @@
 	<!-- container section start -->
   <section id="container" class="">
     <!--header start-->
-	<jsp:include page="header.jsp"></jsp:include>
-    <!--header end-->
+    <header class="header dark-bg">
+      <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+      </div>
 
-    <!--sidebar start-->
-	<jsp:include page="sidebar.jsp"></jsp:include>
-    <!--sidebar end-->
+      <!--logo start-->
+      <a href="../manageorder" class="logo">Nice <span class="lite">Admin</span></a>
+      <!--logo end-->
+
+      <div class="top-nav notification-row">
+        <!-- notificatoin dropdown start-->
+        <ul class="nav pull-right top-menu">
+          <!-- user login dropdown start-->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="admin/img/avatar1_small.jpg">
+                            </span>
+                            <span class="username">${username}</span>
+                            <b class="caret"></b>
+                        </a>
+            <ul class="dropdown-menu extended logout">
+              <div class="log-arrow-up"></div>
+              <li class="eborder-top">
+                <a href="../Profile?action=show"><i class="icon_profile"></i> My Profile</a>
+              </li>
+              <li>
+                <a href="../logout"><i class="icon_key_alt"></i> Log Out</a>
+              </li>
+              <li>
+                <a href="../Home"><i class="icon_house"></i>Shop Home</a>
+              </li>
+            </ul>
+          </li>
+          <!-- user login dropdown end -->
+        </ul>
+        <!-- notificatoin dropdown end-->
+      </div>
+    </header>
+    <!--header end-->
 
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-12">
+            <div class="col-lg-12" >
             <h4 class="page-header"><i class="fa fa fa-bars"></i>Add New Brand Pages</h4>
             <div style="padding:5px; color:red;font-style:italic;">
 		       ${errorMessage}
 		    </div>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="../manageorder">Home</a></li>
+              <li><i class="fa fa-bars"></i><a href="../managebrand?action=show">Brand</a></li>
+            </ol>
           </div>
         </div>
         

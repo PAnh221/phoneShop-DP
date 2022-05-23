@@ -25,7 +25,14 @@
                         </c:when>
                         <c:when test="${session != null}">
                             <li><a href="logout" style="color: #F24638;font-size:16px">Logout</a></li>
-                            <li><a href="#" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
+                            <c:choose>
+                                <c:when test="${permission == 0}">
+                                    <li><a href="#" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
+                                </c:when>
+                                <c:when test="${permission == 1}">
+                                    <li><a href="manageorder" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
+                                </c:when>
+                            </c:choose>
                             <li><a href="Profile?action=show" style="font-size:14px"><b>Profile</b></a></li>
                         </c:when>
                     </c:choose>                    

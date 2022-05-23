@@ -84,6 +84,14 @@ public class CartDAO {
         return list;
     }
     
+    public boolean checkProductExistInCart(String id){
+        int idProduct = Integer.parseInt(id);
+        Query query = em.createQuery("select p from Cart p where p.productId.id = ?1");
+        query.setParameter(1,idProduct);
+        List<Product> list = query.getResultList();
+        return !list.isEmpty();
+    }
+    
     public void close() {
         em.close();
     }
