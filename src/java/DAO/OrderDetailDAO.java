@@ -35,12 +35,25 @@ public class OrderDetailDAO {
     
     public boolean checkProductExistInOrderDetail(String id){
         int idProduct = Integer.parseInt(id);
-        Query query = em.createQuery("select p from Orrderdetail p where p.productId.id = ?1");
+        Query query = em.createQuery("select p from Orrderdetail p where p.productId.id = ?1 and p.orderId.status like ?2");
         query.setParameter(1,idProduct);
+        query.setParameter(2,"%"+"Chua thanh toan"+"%");
         List<Product> list = query.getResultList();
         return !list.isEmpty();
     }
    
+    public void deleteOrderDetail(int orderid){
+        EntityTransaction trans = em.getTransaction();
+        try{
+            trans.begin();
+            Query query = em.createQuery("delete from Orrderdetail p where p.orderId.id = ?1");
+            query.setParameter(1,orderid);
+            query.executeUpdate();
+            trans.commit();
+        }catch(Exception ex){
+            trans.rollback();
+        }
+    }
     
     public void close() {
         em.close();

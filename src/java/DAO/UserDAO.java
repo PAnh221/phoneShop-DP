@@ -21,6 +21,16 @@ public class UserDAO {
         return list;
     }
     
+    public User searchById(String id) {
+        int userid=Integer.parseInt(id);
+        return em.find(User.class, userid);
+    }
+    
+    public List<User> getAllUser() {
+        Query query = em.createQuery("SELECT p FROM User p");
+        List<User> list = query.getResultList();
+        return list;
+    }
     
     public List<User> searchByUsername(String username) {
         Query query = em.createQuery("select p from User p where p.username = ?1");
@@ -48,10 +58,18 @@ public class UserDAO {
         em.getTransaction().commit();
     }
 
-    public void removeUser(User user) {
-        em.getTransaction().begin();
-        em.remove(user);
-        em.getTransaction().commit();
+    public void deleteUser(String id) {
+        int userid = Integer.parseInt(id);
+        EntityTransaction trans = em.getTransaction();
+        try{
+            trans.begin();
+            Query query = em.createQuery("delete from User p where p.id = ?1");
+            query.setParameter(1,userid);
+            query.executeUpdate();
+            trans.commit();
+        }catch(Exception ex){
+            trans.rollback();
+        }
     }
     public boolean isValid(String password) {  
         //return true if and only if password:

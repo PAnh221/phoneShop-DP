@@ -49,7 +49,7 @@
 		       ${errorMessage}
 		    </div>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="manageorder?action=show">Home</a></li>
               <li><i class="fa fa-bars"></i><a href="managebrand?action=show">Brand</a></li>
             </ol>
           </div>
@@ -77,8 +77,11 @@
 		    </div>
 		  </div>
                 <button style="float: right; margin-right: 400px" type="submit" class="btn btn-primary">Confirm</button>
-		</form>
-        	
+	</form>
+        <form method="post" action="managebrand">
+            <input type="hidden" name="action" value="cancel">
+            <button style="float: right; margin-right: 40px" type="submit" class="btn btn-primary" value="Upload" >Cancel</button>
+        </form>		
         <!-- page end-->
         
       </section>

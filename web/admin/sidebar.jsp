@@ -26,7 +26,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="sub-menu">
-            <a href="manageorder" class="">
+            <a href="manageorder?action=show" class="">
                           <i class="icon_document_alt"></i>
                           <span>ORDER LIST</span>
                       </a>
@@ -46,7 +46,7 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="#" class="">
+            <a href="manageuser?action=show" class="">
                           <i class="icon_document_alt"></i>
                           <span>USER LIST</span>
                        

@@ -49,6 +49,9 @@
         <div class="row">
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Orders</h3>
+            <div style="padding:5px; color:red;font-style:italic;">
+		       ${Message}
+		    </div>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="manageorder?action=show">Home</a></li>
               <li style="color: #688a7e; margin-bottom:50px">Orders</li>
@@ -76,31 +79,38 @@
 			  <tbody>
 			    <c:forEach var ="item" items="${listOrders}">
                                     <tr>
-				      <th scope="row">${item.id}</th>
-				      <td>${item.userId.getUsername()}</td>
-				      <td>${item.userId.getName()}</td>
-				      <td>${item.userId.getEmail()}</td>
-				      <td>${item.userId.getAddress()}</td>
-				      <td>${item.getTotalPriceCurrencyFormat()}</td>
-				      <td>${item.createDate}</td>
-				      <td>${item.status}</td>
+				      <th scope="row" style="width: 40px">${item.id}</th>
+				      <td style="width: 120px">${item.userId.getUsername()}</td>
+				      <td style="width: 140px">${item.userId.getName()}</td>
+				      <td style="width: 120px">${item.userId.getEmail()}</td>
+				      <td style="width: 160px">${item.userId.getAddress()}</td>
+				      <td style="width: 90px">${item.getTotalPriceCurrencyFormat()}</td>
+				      <td style="width: 120px">${item.createDate}</td>
+				      <td style="width: 80px">${item.status}</td>
                                       <c:choose>
                                             <c:when test="${item.voucher == 1}">
-                                                <td>0%</td>
+                                                <td style="width: 60px">0%</td>
                                             </c:when>
                                             <c:when test="${item.voucher != 1}">
-                                                <td>10%</td>                                                
+                                                <td style="width: 60px">10%</td>                                                
                                             </c:when>
                                         </c:choose>
-				      <td>${item.shipCode}</td>
-                                      <form method="post" action="ManageOrderDetail">
-                                        <input type="hidden" name="orderId" value="${item.id}">
-                                        <td>
-                                          <input value="Detail" type="submit" style="color: #fff; text-align: center; border: none;
-                                                 background: #039ee3;border-radius: 5px; height: 38px; min-width:
-                                                 70px; padding: 0 15px; margin-left: 5px">
-                                        </td>
-                                      </form>
+				      <td style="width: 100px">${item.shipCode}</td>
+                                      <td>
+                                        <form method="post" action="ManageOrderDetail">
+                                            <input type="hidden" name="orderId" value="${item.id}">
+                                            <input value="Detail" type="submit" style="color: #fff; text-align: center; border: none;
+                                                background: #039ee3;border-radius: 5px; height: 38px; min-width:
+                                                70px; padding: 0 15px; margin-left: 5px">
+                                        </form>
+                                        <form method="post" action="manageorder">
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="orderId" value="${item.id}">
+                                            <input value="Delete" type="submit" style="color: #fff; text-align: center; border: none;
+                                                background: #039ee3;border-radius: 5px; height: 38px; min-width:
+                                                70px; padding: 0 15px; margin-left: 5px; margin-top: 5px">
+                                        </form>
+                                      </td>
 				    </tr>
 				</c:forEach>
 			  </tbody>

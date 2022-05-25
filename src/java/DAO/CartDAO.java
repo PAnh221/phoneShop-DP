@@ -92,6 +92,14 @@ public class CartDAO {
         return !list.isEmpty();
     }
     
+    public boolean checkUserExistInCart(String id){
+        int idUser = Integer.parseInt(id);
+        Query query = em.createQuery("select p from Cart p where p.userId.id = ?1");
+        query.setParameter(1,idUser);
+        List<Product> list = query.getResultList();
+        return !list.isEmpty();
+    }
+    
     public void close() {
         em.close();
     }

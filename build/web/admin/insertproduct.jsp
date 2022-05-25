@@ -16,9 +16,21 @@
   <!-- font icon -->
   <link href="admin/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- full calendar css-->
+  <link href="admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+  <link href="admin/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+  <!-- easy pie chart-->
+  <link href="admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="admin/css/owl.carousel.css" type="text/css">
+  <link href="admin/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
   <!-- Custom styles -->
+  <link rel="stylesheet" href="admin/css/fullcalendar.css">
+  <link href="admin/css/widgets.css" rel="stylesheet">
   <link href="admin/css/style.css" rel="stylesheet">
   <link href="admin/css/style-responsive.css" rel="stylesheet" />
+  <link href="admin/css/xcharts.min.css" rel=" stylesheet">
+  <link href="admin/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 </head>
 <body style="background-color:#dddddd">
 
@@ -38,7 +50,7 @@
 		       ${errorMessage}
 		    </div>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="manageorder?action=show">Home</a></li>
               <li><i class="fa fa-bars"></i><a href="manageproduct?action=show">Product</a></li>
             </ol>
           </div>
@@ -95,7 +107,10 @@
 		  </div>
 		  <button style="float: right; margin-right: 200px" type="submit" class="btn btn-primary" value="Upload" >Confirm</button>
 	</form>
-        	
+        <form method="post" action="manageproduct">
+            <input type="hidden" name="action" value="cancel">
+            <button style="float: right; margin-right: 40px" type="submit" class="btn btn-primary" value="Upload" >Cancel</button>
+        </form>		
         <!-- page end-->
         
       </section>

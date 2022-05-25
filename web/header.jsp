@@ -30,7 +30,7 @@
                                     <li><a href="#" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
                                 </c:when>
                                 <c:when test="${permission == 1}">
-                                    <li><a href="manageorder" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
+                                    <li><a href="manageorder?action=show" style="font-size:14px"><b><c:out value="${username}"></c:out></b></a></li>
                                 </c:when>
                             </c:choose>
                             <li><a href="Profile?action=show" style="font-size:14px"><b>Profile</b></a></li>

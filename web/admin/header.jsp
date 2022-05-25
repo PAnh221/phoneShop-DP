@@ -27,7 +27,7 @@
       </div>
 
       <!--logo start-->
-      <a href="manageorder" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="manageorder?action=show" class="logo">Nice <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="top-nav notification-row">

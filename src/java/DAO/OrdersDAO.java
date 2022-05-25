@@ -42,7 +42,20 @@ public class OrdersDAO {
         }
     }
     
-    public boolean checkExistOrders(int userid){
+    public void deleteOrders(int id){
+        EntityTransaction trans = em.getTransaction();
+        try{
+            trans.begin();
+            Query query = em.createQuery("delete from Orders p where p.id = ?1");
+            query.setParameter(1,id);
+            query.executeUpdate();
+            trans.commit();
+        }catch(Exception ex){
+            trans.rollback();
+        }
+    }
+    
+    public boolean checkUserExistOrders(int userid){
         Query query = em.createQuery("select p from Orders p where p.userId.id = ?1 and p.status like ?2");
         query.setParameter(1,userid);
         query.setParameter(2,"%"+"Chua thanh toan"+"%");

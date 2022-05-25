@@ -42,7 +42,7 @@
       </div>
 
       <!--logo start-->
-      <a href="../manageorder" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="../manageorder?action=show" class="logo">Nice <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -87,7 +87,7 @@
 		       ${errorMessage}
 		    </div>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="../manageorder">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="../manageorder?action=show">Home</a></li>
               <li><i class="fa fa-bars"></i><a href="../managebrand?action=show">Brand</a></li>
             </ol>
           </div>
@@ -117,7 +117,10 @@
 		</form>
         	
         <!-- page end-->
-        
+        <form method="post" action="../managebrand">
+            <input type="hidden" name="action" value="cancel">
+            <button style="float: right; margin-right: 40px" type="submit" class="btn btn-primary" value="Upload" >Cancel</button>
+        </form>
       </section>
     </section>
     <!--main content end-->

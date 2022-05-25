@@ -78,7 +78,7 @@ public class OrderControl extends HttpServlet {
                 }
                 
                 //check if exist invoice in status "Chua thanh toan" and perform update
-                if(ordersDao.checkExistOrders(userid)){
+                if(ordersDao.checkUserExistOrders(userid)){
                     //find invoice exsist and set totalmoney have change
                     List<Orders> listOrder = new ArrayList<Orders>();
                     listOrder = ordersDao.getFromOrders(userid);

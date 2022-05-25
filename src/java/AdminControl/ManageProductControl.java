@@ -111,7 +111,6 @@ public class ManageProductControl extends HttpServlet {
         else if(action.equals("showupdate")){
             Product product = productDao.searchById(idProduct);
             request.setAttribute("productInfo", product);
-            request.setAttribute("brandselect", product.getIdBrand().getId());
             
             List<Brand> listBrand = new ArrayList<Brand>();
             listBrand = brandDao.getAllBrand();
@@ -134,6 +133,9 @@ public class ManageProductControl extends HttpServlet {
             productDao.updateProduct(product);
             
             request.setAttribute("Message", "Update Product Successed");
+            url="/manageproduct?action=show";
+        }
+        else if(action.equals("cancel")){
             url="/manageproduct?action=show";
         }
         

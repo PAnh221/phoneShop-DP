@@ -53,7 +53,7 @@ public class LoginControl extends HttpServlet {
                 if(user.getPermission() == 0){
                     url="/Home";
                 }else{
-                    url="/manageorder";
+                    url="/manageorder?action=show";
                 }
                 
                 session = request.getSession();

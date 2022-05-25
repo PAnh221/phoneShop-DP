@@ -50,7 +50,7 @@
           <div class="col-lg-12">
               <h3 class="page-header"><i class="fa fa fa-bars"></i>DETAIL ORDER <b>${IdOrder}</b></h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="manageorder">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="manageorder?action=show">Home</a></li>
               <li style="color: #688a7e; margin-bottom:50px">Orders</li>
               <li style="color: #688a7e; margin-bottom:50px">Order Detail</li>
             </ol>

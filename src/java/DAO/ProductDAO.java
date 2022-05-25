@@ -36,12 +36,12 @@ public class ProductDAO {
     }
 
     public void deleteProduct(String id){
-        int bid = Integer.parseInt(id);
+        int pid = Integer.parseInt(id);
         EntityTransaction trans = em.getTransaction();
         try{
             trans.begin();
             Query query = em.createQuery("delete from Product p where p.id = ?1");
-            query.setParameter(1,bid);
+            query.setParameter(1,pid);
             query.executeUpdate();
             trans.commit();
         }catch(Exception ex){

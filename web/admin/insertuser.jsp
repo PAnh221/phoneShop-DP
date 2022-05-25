@@ -16,21 +16,9 @@
   <!-- font icon -->
   <link href="admin/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="admin/css/font-awesome.min.css" rel="stylesheet" />
-  <!-- full calendar css-->
-  <link href="admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-  <link href="admin/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
-  <!-- easy pie chart-->
-  <link href="admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" href="admin/css/owl.carousel.css" type="text/css">
-  <link href="admin/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
   <!-- Custom styles -->
-  <link rel="stylesheet" href="admin/css/fullcalendar.css">
-  <link href="admin/css/widgets.css" rel="stylesheet">
   <link href="admin/css/style.css" rel="stylesheet">
   <link href="admin/css/style-responsive.css" rel="stylesheet" />
-  <link href="admin/css/xcharts.min.css" rel=" stylesheet">
-  <link href="admin/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 </head>
 <body style="background-color:#dddddd">
 
@@ -45,69 +33,68 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h4 class="page-header"><i class="fa fa fa-bars"></i>Add New Product Pages</h4>
+            <h4 class="page-header"><i class="fa fa fa-bars"></i>Add New User Pages</h4>
             <div style="padding:5px; color:red;font-style:italic;">
 		       ${errorMessage}
 		    </div>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="manageorder?action=show">Home</a></li>
-              <li><i class="fa fa-bars"></i><a href="manageproduct?action=show">Product</a></li>
+              <li><i class="fa fa-bars"></i><a href="manageuser?action=show">User</a></li>
             </ol>
           </div>
         </div>
         
         <!-- page start-->
-        <form method="post" action="manageproduct">
+        <form method="post" action="manageuser">
             <input type="hidden" name="action" value="add">
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="staticEmail" class="col-sm-2 col-form-label">Product Name</label>
+		    <label style="font-size: 16px; color:#000000" for="staticEmail" class="col-sm-2 col-form-label">Name</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="ProductName">
+		      <input type="text" class="form-control" name="Name">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Price</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Username</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="ProductPrice">
+		      <input type="text" class="form-control" name="Username">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Amount</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="ProductAmount">
+		      <input type="text" class="form-control" name="Password">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Email</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="ProductDescription">
+		      <input type="text" class="form-control" name="Email">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Image</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" placeholder="Enter link image" name="ProductImage">
+		      <input type="text" class="form-control" name="Phone">
 		    </div>
 		  </div>
                   <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Sale</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Address</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="ProductSale">
+		      <input type="text" class="form-control" name="Address">
 		    </div>
 		  </div>
 		  <div class="form-group row">
-		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Brand</label>
+		    <label style="font-size: 16px; color:#000000" for="inputPassword" class="col-sm-2 col-form-label">Permission</label>
 		    <div class="col-sm-10">
-                        <select name="brand">
-                                <c:forEach var ="item" items="${listBrand}">
-				  <option value="${item.id}">${item.name}</option>
-                                </c:forEach>  
+                        <select name="Permission">
+                            <option value="1" selected="">User</option>
+                            <option value="2">Admin</option> 
 			</select>
 		    </div>
 		  </div>
 		  <button style="float: right; margin-right: 200px" type="submit" class="btn btn-primary" value="Upload" >Confirm</button>
 	</form>
-        <form method="post" action="manageproduct">
+        <form method="post" action="manageuser">
             <input type="hidden" name="action" value="cancel">
             <button style="float: right; margin-right: 40px" type="submit" class="btn btn-primary" value="Upload" >Cancel</button>
         </form>		

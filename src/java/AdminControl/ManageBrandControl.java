@@ -94,6 +94,9 @@ public class ManageBrandControl extends HttpServlet {
             request.setAttribute("Message", "Update Brand Successed");
             url="/managebrand?action=show";
         }
+        else if(action.equals("cancel")){
+            url="/managebrand?action=show";
+        }
         
         getServletContext()
                     .getRequestDispatcher(url)
