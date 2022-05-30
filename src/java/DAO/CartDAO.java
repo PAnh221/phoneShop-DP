@@ -9,6 +9,15 @@ import javax.persistence.EntityTransaction;
 
 public class CartDAO {
     private EntityManager em;
+    
+    private static CartDAO instance;
+    
+    public static CartDAO getInstance(EntityManagerFactory emf) {
+        if (instance == null) {
+            instance = new CartDAO(emf);
+        }
+        return instance;
+    }
 
     public CartDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();

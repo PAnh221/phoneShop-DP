@@ -23,7 +23,7 @@ import Entity.*;
 
 @WebServlet(name = "HomeControl", urlPatterns = {"/Home"})
 public class HomeControl extends HttpServlet {
-    private ProductDAO um;
+//    private ProductDAO um;
     private EntityManager em;
     private EntityManagerFactory emf;
 
@@ -33,13 +33,19 @@ public class HomeControl extends HttpServlet {
         String url = "/index.jsp";
         String action = request.getParameter("action");
         HttpSession session;
+        
+
+        
         if (action == null) {
             action = "Home";
         }
         if (action.equals("Home")) {
             emf = Persistence.createEntityManagerFactory("Phone_webPU");
             em = emf.createEntityManager();
-            um = new ProductDAO(emf);
+            
+            // Singleton Implementation
+            ProductDAO um = ProductDAO.getInstance(emf);
+            
             session = request.getSession();
             List<Product> listProduct = new ArrayList<Product>();
             listProduct = um.getAll();

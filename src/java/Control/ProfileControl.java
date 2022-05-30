@@ -26,7 +26,7 @@ public class ProfileControl extends HttpServlet {
     HttpSession session;
 
     
-    private UserDAO userDao;
+//    private UserDAO userDao;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,7 +35,9 @@ public class ProfileControl extends HttpServlet {
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
-        userDao = new UserDAO(emf); 
+        
+        // Singleton Implementation
+        UserDAO userDao = UserDAO.getInstance(emf); 
         
         session = request.getSession();
         String username = (String) session.getAttribute("username");

@@ -20,7 +20,7 @@ import Entity.*;
 
 @WebServlet(name = "LoginControl", urlPatterns = {"/login"})
 public class LoginControl extends HttpServlet {
-    private UserDAO userDao;
+//    private UserDAO userDao;
     private EntityManager em;
     private EntityManagerFactory emf;
     HttpSession session;
@@ -43,7 +43,9 @@ public class LoginControl extends HttpServlet {
 
             emf=Persistence.createEntityManagerFactory("Phone_webPU");
             em = emf.createEntityManager();
-            userDao = new UserDAO(emf);
+            
+            // Singleton Implementation
+            UserDAO userDao = UserDAO.getInstance(emf);
                 
             List<User> listUser = new ArrayList<User>();
             listUser=userDao.login(username, password);

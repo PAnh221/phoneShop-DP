@@ -25,9 +25,9 @@ import javax.swing.JOptionPane;
 
 @WebServlet(name = "CartControl", urlPatterns = {"/cart"})
 public class CartControl extends HttpServlet {
-    private ProductDAO productDao;
-    private CartDAO cartDao;
-    private UserDAO userDao;
+//    private ProductDAO productDao;
+//    private CartDAO cartDao;
+//    private UserDAO userDao;
     
     private EntityManager em;
     private EntityManagerFactory emf;
@@ -40,6 +40,15 @@ public class CartControl extends HttpServlet {
         
         session = request.getSession();
         String username = (String) session.getAttribute("username");
+        
+        emf=Persistence.createEntityManagerFactory("Phone_webPU");
+        em = emf.createEntityManager();
+        
+        // Singleton Implementation
+        ProductDAO productDao = ProductDAO.getInstance(emf);
+        CartDAO cartDao = CartDAO.getInstance(emf);
+        UserDAO userDao = UserDAO.getInstance(emf);
+        
         if(username == null || username.isEmpty()){
             url="/it_login.jsp";
         }
@@ -48,13 +57,14 @@ public class CartControl extends HttpServlet {
             String proid= request.getParameter("proid");
             String quantity=request.getParameter("quantity");
             
-            
-            emf=Persistence.createEntityManagerFactory("Phone_webPU");
-            em = emf.createEntityManager();
-            productDao = new ProductDAO(emf);
-            cartDao = new CartDAO(emf);
-            userDao = new UserDAO(emf);
-            
+//        emf=Persistence.createEntityManagerFactory("Phone_webPU");
+//        em = emf.createEntityManager();
+//        
+//        // Singleton Implementation
+//        ProductDAO productDao = ProductDAO.getInstance(emf);
+//        CartDAO cartDao = CartDAO.getInstance(emf);
+//        UserDAO userDao = UserDAO.getInstance(emf);
+
             List<User> listuser = new ArrayList<User>();
             listuser = userDao.searchByUsername(username);
             User user = listuser.get(0);

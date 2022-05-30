@@ -9,6 +9,15 @@ import Entity.*;
 import javax.persistence.EntityTransaction;
 public class ProductDAO {
     private final EntityManager em;
+    
+    private static ProductDAO instance;
+    
+    public static ProductDAO getInstance(EntityManagerFactory emf) {
+        if (instance == null) {
+            instance = new ProductDAO(emf);
+        }
+        return instance;
+    }
 
     public ProductDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();

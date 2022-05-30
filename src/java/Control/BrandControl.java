@@ -20,8 +20,8 @@ import Entity.*;
 
 @WebServlet(name = "BrandControl", urlPatterns = {"/Brand"})
 public class BrandControl extends HttpServlet {
-    private ProductDAO productDao;
-    private BrandDAO brandDao;
+//    private ProductDAO productDao;
+//    private BrandDAO brandDao;
     private EntityManager em;
     private EntityManagerFactory emf;
 
@@ -33,8 +33,10 @@ public class BrandControl extends HttpServlet {
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
-        productDao = new ProductDAO(emf);
-        brandDao = new BrandDAO(emf);
+        
+        // Singleton Implementation
+        ProductDAO productDao = ProductDAO.getInstance(emf);
+        BrandDAO brandDao = BrandDAO.getInstance(emf);
         
         List<Product> listProduct = new ArrayList<Product>();
         listProduct = productDao.getPaging(tag,1);

@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 
 @WebServlet(name = "SignUpControl", urlPatterns = {"/signup"})
 public class SignUpControl extends HttpServlet {
-    private UserDAO userDao;
+//    private UserDAO userDao;
     private EntityManager em;
     private EntityManagerFactory emf;
     HttpSession session;
@@ -50,7 +50,9 @@ public class SignUpControl extends HttpServlet {
         
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
-        userDao = new UserDAO(emf);
+        
+        // Singleton Implementation
+        UserDAO userDao = UserDAO.getInstance(emf);
         
         List<User> listCustomer = new ArrayList<User>();
         listCustomer=userDao.searchByEmailandUsername(email,username);

@@ -22,11 +22,11 @@ import javax.swing.JOptionPane;
 
 @WebServlet(name = "OrderControl", urlPatterns = {"/order"})
 public class OrderControl extends HttpServlet {
-    private ProductDAO productDao;
-    private CartDAO cartDao;
-    private UserDAO userDao;
-    private OrdersDAO ordersDao;
-    private OrderDetailDAO orderDetailDao;
+//    private ProductDAO productDao;
+//    private CartDAO cartDao;
+//    private UserDAO userDao;
+//    private OrdersDAO ordersDao;
+//    private OrderDetailDAO orderDetailDao;
     //private MailDAO mailDao;
     
     private EntityManager em;
@@ -43,6 +43,17 @@ public class OrderControl extends HttpServlet {
         session = request.getSession();
         //check login 
         String username = (String) session.getAttribute("username");
+        
+        
+        emf=Persistence.createEntityManagerFactory("Phone_webPU");
+        em = emf.createEntityManager();
+        // Singleton Implementation
+        ProductDAO productDao = ProductDAO.getInstance(emf);
+        CartDAO cartDao = CartDAO.getInstance(emf);
+        UserDAO userDao = UserDAO.getInstance(emf);
+        OrdersDAO ordersDao = OrdersDAO.getInstance(emf);
+        OrderDetailDAO orderDetailDao = OrderDetailDAO.getInstance(emf);
+        
         if(username == null || username.isEmpty()){   //hadn't login
             url="/it_login.jsp";
         }
@@ -50,13 +61,13 @@ public class OrderControl extends HttpServlet {
             String action = request.getParameter("action");
             String coupon = request.getParameter("coupon_code");
         
-            emf=Persistence.createEntityManagerFactory("Phone_webPU");
-            em = emf.createEntityManager();
-            productDao = new ProductDAO(emf);
-            cartDao = new CartDAO(emf);
-            userDao = new UserDAO(emf);
-            ordersDao = new OrdersDAO(emf);
-            orderDetailDao = new OrderDetailDAO(emf);
+//            emf=Persistence.createEntityManagerFactory("Phone_webPU");
+//            em = emf.createEntityManager();
+//            productDao = new ProductDAO(emf);
+//            cartDao = new CartDAO(emf);
+//            userDao = new UserDAO(emf);
+//            ordersDao = new OrdersDAO(emf);
+//            orderDetailDao = new OrderDetailDAO(emf);
             //mailDao = new MailDAO();
             
             //get customer id

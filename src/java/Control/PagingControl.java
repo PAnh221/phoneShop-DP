@@ -21,8 +21,8 @@ import javax.persistence.Persistence;
 
 @WebServlet(name = "PagingControl", urlPatterns = {"/paging"})
 public class PagingControl extends HttpServlet {
-    private ProductDAO productDao;
-    private BrandDAO brandDao;
+//    private ProductDAO productDao;
+//    private BrandDAO brandDao;
     private EntityManager em;
     private EntityManagerFactory emf;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -43,8 +43,10 @@ public class PagingControl extends HttpServlet {
         int indexPage=Integer.parseInt(index);
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
-        productDao = new ProductDAO(emf);
-        brandDao = new BrandDAO(emf);
+        
+        // Singleton Implementation
+        ProductDAO productDao = ProductDAO.getInstance(emf);
+        BrandDAO brandDao = BrandDAO.getInstance(emf);
         
         //count num page by cate id
         int countPage = productDao.getNumPage(brandid);

@@ -17,8 +17,8 @@ import javax.persistence.Persistence;
 
 @WebServlet(name = "SearchControl", urlPatterns = {"/search"})
 public class SearchControl extends HttpServlet {
-    private ProductDAO productDao;
-    private BrandDAO brandDao;
+//    private ProductDAO productDao;
+//    private BrandDAO brandDao;
     private EntityManager em;
     private EntityManagerFactory emf;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -31,8 +31,10 @@ public class SearchControl extends HttpServlet {
 
         emf=Persistence.createEntityManagerFactory("Phone_webPU");
         em = emf.createEntityManager();
-        productDao = new ProductDAO(emf);
-        brandDao = new BrandDAO(emf);
+        
+        // Singleton Implementation
+        ProductDAO productDao = ProductDAO.getInstance(emf);
+        BrandDAO brandDao = BrandDAO.getInstance(emf);
         
         
         List<Product> listProductFound = new ArrayList<Product>();

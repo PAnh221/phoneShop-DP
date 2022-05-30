@@ -10,6 +10,15 @@ import javax.persistence.Query;
 public class OrderDetailDAO {
     private final EntityManager em;
 
+    private static OrderDetailDAO instance;
+    
+    public static OrderDetailDAO getInstance(EntityManagerFactory emf) {
+        if (instance == null) {
+            instance = new OrderDetailDAO(emf);
+        }
+        return instance;
+    }
+    
     public OrderDetailDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();
     }

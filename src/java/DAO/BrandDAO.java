@@ -9,6 +9,15 @@ import javax.persistence.EntityTransaction;
 
 public class BrandDAO {
     private EntityManager em;
+    private static BrandDAO instance;
+    
+    public static BrandDAO getInstance(EntityManagerFactory emf) {
+        if (instance == null) {
+            instance = new BrandDAO(emf);
+        }
+        return instance;
+    }
+    
     public BrandDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();
     }

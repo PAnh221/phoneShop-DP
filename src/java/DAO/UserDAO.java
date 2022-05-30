@@ -10,6 +10,15 @@ import javax.persistence.EntityTransaction;
 public class UserDAO {
     private EntityManager em;
 
+    
+    private static UserDAO instance;
+    
+    public static UserDAO getInstance(EntityManagerFactory emf) {
+        if (instance == null) {
+            instance = new UserDAO(emf);
+        }
+        return instance;
+    }
     public UserDAO(EntityManagerFactory emf) {
         em = emf.createEntityManager();
     }
