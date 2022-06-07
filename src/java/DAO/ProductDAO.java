@@ -1,6 +1,9 @@
 
 package DAO;
 
+import Adapter.ConverterAdapter;
+import Adapter.USDTarget;
+import Adapter.VNDAdaptee;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -138,6 +141,12 @@ public class ProductDAO {
         query.setParameter(1,name);
         List<Product> list = query.getResultList();
         return !list.isEmpty();
+    }
+    
+    // Adapter pattern implementation
+    public double getPriceVNDfromUSD(double USDAmount) {
+        USDTarget client = new ConverterAdapter(new VNDAdaptee());
+        return client.getVNDfromUSD(USDAmount);
     }
     
     public void close() {

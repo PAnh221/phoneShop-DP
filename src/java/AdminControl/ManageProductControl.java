@@ -87,7 +87,11 @@ public class ManageProductControl extends HttpServlet {
                 product.setName(name);
                 product.setImage(image);
                 product.setAmount(Integer.parseInt(amount));
-                product.setPrice(Double.parseDouble(price));
+                
+                // Adapter implementation
+                double priceVND = productDao.getPriceVNDfromUSD(Double.parseDouble(price));
+                
+                product.setPrice(priceVND);
                 product.setDescription(description);
                 product.setSale(saleProduct);
                 product.setIdBrand(brand);
