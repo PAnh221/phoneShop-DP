@@ -19,6 +19,10 @@ import javax.servlet.http.HttpSession;
 
 import DAO.*;
 import Entity.*;
+import Stategy.ConcreteStrategyAddUser;
+import Stategy.ConcreteStrategyDeleteUser;
+import Stategy.ConcreteStrategyEditUser;
+import Stategy.UserManageContext;
 import java.util.Date;
 
 @WebServlet(name = "ManageUserControl", urlPatterns = {"/manageuser"})
@@ -93,18 +97,34 @@ public class ManageUserControl extends HttpServlet {
                 user.setPhone(phone);
                 user.setRegisterdate(registerDate);
                 
-                userDao.addUser(user);
+//                userDao.addUser(user);
+
+                // Strategy implementation
+                UserManageContext context = new UserManageContext();
+                context.setStrategy(new ConcreteStrategyAddUser());
+                context.execute(user);
+                //
 
                 request.setAttribute("Message", "Added New User Successed");
                 url="/manageuser?action=show";
             }
         }
         else if(action.equals("delete")){
-            if(cartDao.checkUserExistInCart(idUser) || orderDao.checkUserExistOrders(Integer.parseInt(idUser))){
+            if(cartDao.checkUserExistInCart(idUser) || orderDao.checkUserExistOrders(Integer.parseInt(idUser)) ||
+                    idUser.isEmpty() || idUser.isBlank()){
                 request.setAttribute("Message", "You Can't Delete This User");
             }
             else{
-                userDao.deleteUser(idUser);
+//                userDao.deleteUser(idUser);
+
+                User user1 = new User();
+                user1.setId(Integer.parseInt(idUser));
+                // Strategy implementation
+                UserManageContext context = new UserManageContext();
+                context.setStrategy(new ConcreteStrategyDeleteUser());
+                context.execute(user1);
+                //
+
                 request.setAttribute("Message", "Delete User Successed");
             }
             url="/manageuser?action=show";
@@ -131,7 +151,13 @@ public class ManageUserControl extends HttpServlet {
             user.setEmail(email);
             user.setPhone(phone);
             
-            userDao.updateUser(user);
+//            userDao.updateUser(user);
+
+            // Strategy implementation
+            UserManageContext context = new UserManageContext();
+            context.setStrategy(new ConcreteStrategyEditUser());
+            context.execute(user);
+            //
             
             request.setAttribute("Message", "Update User Successed");
             url="/manageuser?action=show";
