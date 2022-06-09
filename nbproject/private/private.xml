@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/nbproject/build-impl.xml</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/Template/ExecuteQuery.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/AdminControl/ManageProductControl.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/AdminControl/ManageBrandControl.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/Template/DeleteProduct.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/Template/UpdateProduct.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/Template/AddProduct.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/AdminControl/ManageUserControl.java</file>
+            <file>file:/E:/Nam3-HK2/MauThietKePhanMem/Final/phoneShop-DP/src/java/DAO/ProductDAO.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -19,6 +19,11 @@ import javax.servlet.http.HttpSession;
 
 import DAO.*;
 import Entity.*;
+import Template.AddProduct;
+import Template.DeleteProduct;
+import Template.ExecuteQuery;
+import Template.UpdateProduct;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Delete;
 
 
 @WebServlet(name = "ManageProductControl", urlPatterns = {"/manageproduct"})
@@ -96,7 +101,11 @@ public class ManageProductControl extends HttpServlet {
                 product.setSale(saleProduct);
                 product.setIdBrand(brand);
                 
-                productDao.addNewProduct(product);
+//                productDao.addNewProduct(product);
+                // Template pattern implementation
+               ExecuteQuery ex = new AddProduct(emf, product);
+               ex.execute();
+               //
 
                 request.setAttribute("Message", "Added New Product Successed");
                 url="/manageproduct?action=show";
@@ -107,7 +116,13 @@ public class ManageProductControl extends HttpServlet {
                 request.setAttribute("Message", "You Can't Delete This Product");
             }
             else{
-                productDao.deleteProduct(idProduct);
+//                productDao.deleteProduct(idProduct);
+
+                // Template pattern implementation
+                ExecuteQuery ex = new DeleteProduct(emf, idProduct);
+                ex.execute();
+                //
+                    
                 request.setAttribute("Message", "Delete Product Successed");
             }
             url="/manageproduct?action=show";
@@ -134,7 +149,12 @@ public class ManageProductControl extends HttpServlet {
             product.setSale(Double.parseDouble(sale));
             product.setIdBrand(brand);
             
-            productDao.updateProduct(product);
+//            productDao.updateProduct(product);
+
+//          Template pattern implementation
+            ExecuteQuery ex = new UpdateProduct(emf, product);
+            ex.execute();
+            //
             
             request.setAttribute("Message", "Update Product Successed");
             url="/manageproduct?action=show";
